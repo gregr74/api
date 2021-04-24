@@ -6,7 +6,7 @@ let http = require('http');
 let options = {
     host: 'discordapp.com',
     path: '/api/users/',
-    headers: {'Authorization:': 'Bot NTgwMDUzMDA5MDc4Mjg4Mzk0.XOLGdg.jcA_4VkUYhJxOLO5nxvPGd8oUhk'}
+    headers: {'Authorization': 'Bot NTgwMDUzMDA5MDc4Mjg4Mzk0.XOLGdg.jcA_4VkUYhJxOLO5nxvPGd8oUhk'}
 };
 let users_data = http.request(options).end();
 
