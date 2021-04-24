@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 
-let http = require('http');
+let http = require('https');
 
 let options = {
     host: 'discordapp.com',
