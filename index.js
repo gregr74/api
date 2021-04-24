@@ -1,12 +1,17 @@
 const http = require('http');
 const port = process.env.PORT || 3001;
-const server = http.createServer();
-server.on('request', (request, response) => {
+// Require packages and set the port
+const express = require('express');
+const app = express();
+
+app.get('/', (request, response) => {
     console.log(`URL: ${request.url}`);
-    response.end('Hello, server!')
-})
-server.listen(port, (error) => {
+    response.send('Hello, Server!');
+});
+
+// Start the server
+const server = app.listen(port, (error) => {
     if (error) return console.log(`Error: ${error}`);
  
-    console.log(`Server is listening on port ${port}`)
-})
+    console.log(`Server listening on port ${server.address().port}`);
+});
