@@ -15,10 +15,11 @@ router.get('/discord', (request, response) => {
     const token = 'NTgwMDUzMDA5MDc4Mjg4Mzk0.XOLGdg.jcA_4VkUYhJxOLO5nxvPGd8oUhk';
     const client = new Client()
     client.login(token);
+    async () => {
 id = request.query.id;
 const fetchUser = client.users.fetch(id);
-const usr = message.guild.cache.get(id);
-console.log(usr);
+console.log(fetchUser);
+    }
     apitype = request.query.type;
     //console.log(users_data);
     if(apitype == 'avatar') {
