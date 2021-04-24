@@ -11,7 +11,7 @@ router.get('/', (request, response) => {
 });
 
 router.get('/wakemydyno.txt', (request, response) => {
-    response.send('');
+    router.static('', 'wakemydyno.txt');
 });
 
 router.get('/discord', async (request, response) => {
