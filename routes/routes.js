@@ -1,6 +1,9 @@
 const express = require('express');
-
 const router = express.Router();
+
+var http = require('http');
+
+let users_api_url = 'https://discordapp.com/api/users/';
 
 router.get('/', (request, response) => {
     response.send({
