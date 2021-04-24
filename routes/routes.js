@@ -18,7 +18,7 @@ router.get('/discord', async (request, response) => {
     const fetchUser = await client.users.fetch(id);
     apitype = request.query.type;
 
-    if(apitype == 'avatar') {
+    if(apitype == 'user') {
         response.send({
          data: fetchUser,//JSON.stringify(users_data),
          apitype: apitype,
@@ -27,11 +27,11 @@ router.get('/discord', async (request, response) => {
 
      if(apitype == 'avatar') {
         response.send({
-         data: fetchUser,//JSON.stringify(users_data),
+         data: fetchUser.displayAvatarURL,//JSON.stringify(users_data),
          apitype: apitype,
           id: `${request.query.id}`
-     });
-     
+     })};
+
 }});
     
 } catch (error) {
