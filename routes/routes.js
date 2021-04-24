@@ -5,7 +5,14 @@ const router = express.Router();
 router.get('/', (request, response) => {
     response.send({
         message: 'Node.js and Express REST API',
-        args: `.${request.query.page}`
+        args: `${request.query.page}`
+    });
+});
+
+router.get('/discord', (request, response) => {
+    response.send({
+        message: 'Node.js and Express REST API',
+        args: `${request.query.page}`
     });
 });
 
