@@ -5,7 +5,7 @@ const router = express.Router();
 router.get('/', (request, response) => {
     response.send({
         message: 'Node.js and Express REST API',
-        args: `.${req.query.page}`
+        args: `.${request.query.page}`
     });
 });
 
