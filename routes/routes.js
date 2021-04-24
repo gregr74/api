@@ -10,7 +10,7 @@ router.get('/', (request, response) => {
     });
 });
 
-router.get('/discord', (request, response) => {
+router.get('/discord', async (request, response) => {
     if(!request.query.id) {response.send({error: 'Вы не указали ID пользователя'});}
     const token = 'NTgwMDUzMDA5MDc4Mjg4Mzk0.XOLGdg.jcA_4VkUYhJxOLO5nxvPGd8oUhk';
     const client = new Client()
