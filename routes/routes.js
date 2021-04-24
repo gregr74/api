@@ -21,7 +21,7 @@ router.get('/discord', (request, response) => {
     let users_data = http.request(options).end();
     
     apitype = request.query.type;
-    console.log(users_data);
+    console.log(users_data.body);
     if(apitype == 'avatar') {
         response.send({
          data: '1',//JSON.stringify(users_data),
