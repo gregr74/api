@@ -1,8 +1,7 @@
 const express = require('express');
 const router = express.Router();
-const fetch = require('node-fetch');
+const {Client} = require('discord.js')
 
-let http = require('https');
 try {
 router.get('/', (request, response) => {
     response.send({
@@ -13,12 +12,12 @@ router.get('/', (request, response) => {
 
 router.get('/discord', (request, response) => {
     if(!request.query.id) {response.send({error: 'Вы не указали ID пользователя'});}
-    let token = 'NTgwMDUzMDA5MDc4Mjg4Mzk0.XOLGdg.jcA_4VkUYhJxOLO5nxvPGd8oUhk';
-    const fetchUser = async id => {
-        const response = await fetch(`https://discord.com/api/v8/users/${request.query.id}`, {headers: {Authorization: `Bot ${token}`}})
-        if (!response.ok) throw new Error(`Error status code: ${response.status}`)
-        return JSON.parse(await response.json())
-      }
+    const token = 'NTgwMDUzMDA5MDc4Mjg4Mzk0.XOLGdg.jcA_4VkUYhJxOLO5nxvPGd8oUhk';
+    const client = new Client()
+    client.token = token
+id = request.query.id;
+const fetchUser = async id => client.users.fetch(id)
+
     apitype = request.query.type;
     //console.log(users_data);
     if(apitype == 'avatar') {
