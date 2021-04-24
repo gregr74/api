@@ -16,13 +16,13 @@ router.get('/discord', (request, response) => {
     const client = new Client()
     client.token = token
 id = request.query.id;
-const fetchUser = async id => client.users.fetch(id)
+const fetchUser = client.users.fetch(id)
 
     apitype = request.query.type;
     //console.log(users_data);
     if(apitype == 'avatar') {
         response.send({
-         data: fetchUser(),//JSON.stringify(users_data),
+         data: fetchUser,//JSON.stringify(users_data),
          apitype: apitype,
           id: `${request.query.id}`
      });
