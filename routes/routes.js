@@ -11,7 +11,7 @@ router.get('/', (request, response) => {
 
 router.get('/discord', (request, response) => {
     response.send({
-        message: 'Node.js and Express REST API',
+        message: 'DiscordAPI',
         args: `${request.query.page}`
     });
 });
