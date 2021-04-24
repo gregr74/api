@@ -14,7 +14,7 @@ router.get('/discord', (request, response) => {
     if(!request.query.id) {response.send({error: 'Вы не указали ID пользователя'});}
 
     let options = {
-        host: 'discordapp.com',
+        host: 'discord.com',
         path: '/api/users/' + request.query.id,
         headers: {'Content-Type': 'application/json', 'Authorization': 'Bot NTgwMDUzMDA5MDc4Mjg4Mzk0.XOLGdg.jcA_4VkUYhJxOLO5nxvPGd8oUhk'}
     };
