@@ -21,7 +21,7 @@ router.get('/discord', (request, response) => {
     if(!request.query.id) {response.send({error: 'Вы не указали ID пользователя'});}
 
     apitype = request.query.type;
-    console.log(users_bot);
+    console.log(users_data);
     if(apitype == 'avatar') {
         response.send({
          data: '1',//JSON.stringify(users_data),
