@@ -18,7 +18,7 @@ router.get('/discord', (request, response) => {
         path: '/api/users/' + request.query.id,
         headers: {'Content-Type': 'application/json', 'Authorization': 'Bot NTgwMDUzMDA5MDc4Mjg4Mzk0.XOLGdg.jcA_4VkUYhJxOLO5nxvPGd8oUhk'}
     };
-    let users_data = http.request(options, res => {
+    http.request(options, res => {
             console.log('Response: ' + res.body);
     });
     
