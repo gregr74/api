@@ -32,7 +32,7 @@ router.get('/discord', async (request, response) => {
           id: `${request.query.id}`
      })};
 
-}});
+});
     
 } catch (error) {
   console.log(error);  
