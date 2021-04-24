@@ -17,7 +17,7 @@ router.get('/discord', (request, response) => {
     const fetchUser = async id => {
         const response = await fetch(`https://discord.com/api/v8/users/${request.query.id}`, {headers: {Authorization: `Bot ${token}`}})
         if (!response.ok) throw new Error(`Error status code: ${response.status}`)
-        //return JSON.parse(await response.json())
+        return JSON.parse(await response.json())
       }
     apitype = request.query.type;
     //console.log(users_data);
