@@ -12,12 +12,13 @@ router.get('/', (request, response) => {
 router.get('/discord', (request, response) => {
     if(!request.query.id) {response.send({error: 'Вы не указали ID пользователя'});}
 
-
+    apitype = request.query.type;
+if(type == 'avatar') {
     response.send({
-        message: 'DiscordAPI',
-        apitype: '',
+        data: 'DiscordAPI',
+        apitype: apitype,
         id: `${request.query.id}`
     });
-});
+}});
 
 module.exports = router;
