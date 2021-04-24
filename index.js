@@ -1,12 +1,16 @@
-const http = require('http');
 const port = process.env.PORT || 3001;
-// Require packages and set the port
 const express = require('express');
 const app = express();
+const bodyParser = require('body-parser');
+
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({
+    extended: true,
+}));
 
 app.get('/', (request, response) => {
     console.log(`URL: ${request.url}`);
-    response.send('Hello, Server!');
+    response.send({message: 'Node.js and Express REST API'});
 });
 
 // Start the server
