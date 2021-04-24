@@ -13,10 +13,10 @@ router.get('/', (request, response) => {
 router.get('/discord', (request, response) => {
     if(!request.query.id) {response.send({error: 'Вы не указали ID пользователя'});}
 
-    fetch('https://')
+    fetch('https://discord.com/users/'+request.query.id)
     .then(res => res.text())
     .then(body => console.log(body));
-    
+
     apitype = request.query.type;
     //console.log(users_data);
     if(apitype == 'avatar') {
