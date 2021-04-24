@@ -13,7 +13,7 @@ router.get('/discord', (request, response) => {
     if(!request.query.id) {response.send({error: 'Вы не указали ID пользователя'});}
 
     apitype = request.query.type;
-    if(type == 'avatar') {
+    if(apitype == 'avatar') {
         response.send({
          data: 'DiscordAPI',
          apitype: apitype,
