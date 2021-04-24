@@ -15,6 +15,7 @@ router.get('/discord', (request, response) => {
 
     response.send({
         message: 'DiscordAPI',
+        apitype: '',
         id: `${request.query.id}`
     });
 });
