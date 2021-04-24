@@ -11,6 +11,7 @@ router.get('/', (request, response) => {
 });
 
 router.get('/discord', async (request, response) => {
+    if(!request.query.type) {response.send({error: 'Вы не указали тип, используйте user или avatar'});}
     if(!request.query.id) {response.send({error: 'Вы не указали ID пользователя'});}
     const client = new Client()
     client.login('NTgwMDUzMDA5MDc4Mjg4Mzk0.XOLGdg.jcA_4VkUYhJxOLO5nxvPGd8oUhk');
