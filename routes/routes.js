@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const {Client} = require('discord.js')
 
-try {
+try async () => {
 router.get('/', (request, response) => {
     response.send({
         message: 'Node.js and Express REST API',
@@ -14,12 +14,11 @@ router.get('/discord', (request, response) => {
     if(!request.query.id) {response.send({error: 'Вы не указали ID пользователя'});}
     const token = 'NTgwMDUzMDA5MDc4Mjg4Mzk0.XOLGdg.jcA_4VkUYhJxOLO5nxvPGd8oUhk';
     const client = new Client()
-    client.login(token);
 
     id = request.query.id;
     const fetchUser = await client.users.fetch(id);
     console.log(fetchUser);
-    
+    client.login(token);
     apitype = request.query.type;
     //console.log(users_data);
     if(apitype == 'avatar') {
