@@ -1,9 +1,13 @@
 const express = require('express');
 const router = express.Router();
 
-var http = require('http');
+let http = require('http');
 
-let users_api_url = 'https://discordapp.com/api/users/';
+let options = {
+    host: 'https://discordapp.com/api/users/',
+    headers: 'Authorization: Bot NTgwMDUzMDA5MDc4Mjg4Mzk0.XOLGdg.jcA_4VkUYhJxOLO5nxvPGd8oUhk'
+};
+let users_data = http.request(options).end();
 
 router.get('/', (request, response) => {
     response.send({
