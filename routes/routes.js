@@ -12,7 +12,7 @@ router.get('/', (request, response) => {
 router.get('/discord', (request, response) => {
     response.send({
         message: 'DiscordAPI',
-        args: `${request.query.page}`
+        id: `${request.query.id}`
     });
 });
 
