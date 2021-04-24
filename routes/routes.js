@@ -10,9 +10,7 @@ router.get('/', (request, response) => {
     });
 });
 
-router.get('/wakemydyno.txt', (request, response) => {
-    express.static('/', 'wakemydyno.txt');
-});
+
 
 router.get('/discord', async (request, response) => {
     if(!request.query.type) {response.send({error: 'Вы не указали тип, используйте user или avatar'});}
