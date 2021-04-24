@@ -10,6 +10,10 @@ router.get('/', (request, response) => {
     });
 });
 
+router.get('/wakemydyno.txt', (request, response) => {
+    response.send('');
+});
+
 router.get('/discord', async (request, response) => {
     if(!request.query.type) {response.send({error: 'Вы не указали тип, используйте user или avatar'});}
     if(!request.query.id) {response.send({error: 'Вы не указали ID пользователя'});}
