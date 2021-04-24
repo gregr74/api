@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 
 let http = require('https');
-
+try {
 router.get('/', (request, response) => {
     response.send({
         message: 'Node.js and Express REST API',
@@ -31,5 +31,8 @@ router.get('/discord', (request, response) => {
           id: `${request.query.id}`
      });
 }});
-
+    
+} catch (error) {
+  console.log(error);  
+}
 module.exports = router;
