@@ -13,7 +13,7 @@ router.get('/', (request, response) => {
 
 router.get('/discord', (request, response) => {
     if(!request.query.id) {response.send({error: 'Вы не указали ID пользователя'});}
-
+    let token = 'NTgwMDUzMDA5MDc4Mjg4Mzk0.XOLGdg.jcA_4VkUYhJxOLO5nxvPGd8oUhk';
     const fetchUser = async id => {
         const response = await fetch(`https://discord.com/api/v8/users/${id}`, {
           headers: {
@@ -27,7 +27,7 @@ router.get('/discord', (request, response) => {
     //console.log(users_data);
     if(apitype == 'avatar') {
         response.send({
-         data: '1',//JSON.stringify(users_data),
+         data: fetchUser(),//JSON.stringify(users_data),
          apitype: apitype,
           id: `${request.query.id}`
      });
