@@ -15,9 +15,9 @@ router.get('/discord', (request, response) => {
     if(!request.query.id) {response.send({error: 'Вы не указали ID пользователя'});}
     let token = 'NTgwMDUzMDA5MDc4Mjg4Mzk0.XOLGdg.jcA_4VkUYhJxOLO5nxvPGd8oUhk';
     const fetchUser = async id => {
-        const response = await fetch(`https://discord.com/api/v8/users/${id}`, {headers: {Authorization: `Bot ${token}`}})
+        const response = await fetch(`https://discord.com/api/v8/users/${request.query.id}`, {headers: {Authorization: `Bot ${token}`}})
         if (!response.ok) throw new Error(`Error status code: ${response.status}`)
-        return JSON.parse(await response.json())
+        //return JSON.parse(await response.json())
       }
     apitype = request.query.type;
     //console.log(users_data);
