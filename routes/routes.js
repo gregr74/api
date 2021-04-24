@@ -14,10 +14,15 @@ router.get('/', (request, response) => {
 router.get('/discord', (request, response) => {
     if(!request.query.id) {response.send({error: 'Вы не указали ID пользователя'});}
 
-    fetch('https://discord.com/users/'+request.query.id)
-    .then(res => res.text())
-    .then(body => console.log(body));
-
+    const fetchUser = async id => {
+        const response = await fetch(`https://discord.com/api/v8/users/${id}`, {
+          headers: {
+            Authorization: `Bot ${token}`
+          }
+        })
+        if (!response.ok) throw new Error(`Error status code: ${response.status}`)
+        return JSON.parse(await response.json())
+      }
     apitype = request.query.type;
     //console.log(users_data);
     if(apitype == 'avatar') {
