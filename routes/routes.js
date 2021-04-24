@@ -10,7 +10,7 @@ router.get('/', (request, response) => {
 });
 
 router.get('/discord', (request, response) => {
-    if(!request.query.id) {response.send({message: 'Вы не указали ID пользователя'});}
+    if(!request.query.id) {response.send({error: 'Вы не указали ID пользователя'});}
 
 
     response.send({
