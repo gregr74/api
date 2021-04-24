@@ -17,7 +17,7 @@ router.get('/discord', (request, response) => {
     client.token = token
 id = request.query.id;
 const fetchUser = client.users.fetch(id)
-
+console.log(fetchUser);
     apitype = request.query.type;
     //console.log(users_data);
     if(apitype == 'avatar') {
