@@ -40,6 +40,10 @@ router.get('/discord', async (request, response) => {
      }
 });
 
+router.get('/wakemydyno.txt', (request, response) => {
+    response.send('');
+});
+
 router.use((req, res) => {
     res.status(404).json({ error: 'Страница не найдена' });
 });
