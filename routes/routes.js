@@ -41,7 +41,7 @@ router.get('/discord', async (request, response) => {
 });
 
 router.get('/wakemydyno.txt', (request, response) => {
-    response.send('');
+    response.send('Lorem ipsum dolor sit amet');
 });
 
 router.use((req, res) => {
