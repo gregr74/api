@@ -5,7 +5,8 @@ const router = express.Router();
 
 router.get('/', (request, response) => {
     response.send({
-        message: 'Node.js and Express REST API'
+        message: "Welcome to the VOID api",
+        docs: "https://docs.void.cf/"
     });
 });
 
