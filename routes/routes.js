@@ -41,6 +41,7 @@ router.get('/discord', async (request, response) => {
 });
 
 router.get('/wakemydyno.txt', (request, response) => {
+    response.set('Content-Type', 'text/plain')
     response.send('Lorem ipsum dolor sit amet');
 });
 
