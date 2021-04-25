@@ -5,8 +5,7 @@ const router = express.Router();
 
 router.get('/', (request, response) => {
     response.send({
-        message: 'Node.js and Express REST API',
-        args: `${request.query.page}`
+        message: 'Node.js and Express REST API'
     });
 });
 
@@ -39,6 +38,10 @@ router.get('/discord', async (request, response) => {
             apiType
         })
      }
+});
+
+router.use(function(req, res){
+    res.status(404).json({ error: 'Страница не найдена' });
 });
 
 module.exports = router;
