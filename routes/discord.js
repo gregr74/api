@@ -14,13 +14,15 @@ module.exports = function(app) {
         let fetchUser;
         try {
            fetchUser = await client.users.fetch(id);
+           const userobject = fetchUser;
+           userobject.displayAvatarURL = fetchUser.displayAvatarURL({ dynamic: true, format: 'png' });
         } catch (err) {
             return response.send({ error: 'Указан неверный ID' });
         }
 
         if (apiType === 'user') response.send({
             id: request.query.id,
-            data: fetchUser,
+            data: userobject,
             apiType,
         });
 
