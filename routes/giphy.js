@@ -4,7 +4,7 @@ const giphyKey = 'C7bImfPsbaRlYZKx0o7iJw6OHHzk4sz0';
 
 module.exports = function(app) {
 
-    app.get('/random', async (req, res) => {
+    app.get('/giphy', async (req, res) => {
         if (!req.query.q) return res.send({error: 'Вы не указали запрос'});
         const giphyURL = `https://api.giphy.com/v1/gifs/random?api_key=${giphyKey}&tag=${req.query.q}&rating=r`;
 
