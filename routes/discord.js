@@ -12,9 +12,11 @@ module.exports = function(app) {
         const apiType = request.query.type;
 
         let fetchUser;
+        let userobject;
         try {
            fetchUser = await client.users.fetch(id);
-           const userobject = fetchUser;
+           userobject = fetchUser;
+           
            userobject.displayAvatarURL = fetchUser.displayAvatarURL({ dynamic: true, format: 'png' });
         } catch (err) {
             return response.send({ error: 'Указан неверный ID' });
