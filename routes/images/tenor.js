@@ -9,7 +9,7 @@ module.exports = function(app) {
         const tenorURL = `https://api.tenor.com/v1/random?q=${req.query.q}&key=${tenorKey}&limit=1`;
 
         const request = await fetch(tenorURL).then(res => res.json());
-        console.log(request);
+
         if (request.status === '404') return res.status(404).send({ error: 'Картинки не найдено' });
         res.send({
             query: req.query.q,
