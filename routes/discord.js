@@ -16,8 +16,7 @@ module.exports = function(app) {
            fetchUser = await client.users.fetch(id);
            dynamicavatar = fetchUser.displayAvatarURL({ dynamic: true, format: 'png' });
            staticavatar = fetchUser.displayAvatarURL();
-           fetchUser = JSON.stringify(fetchUser);
-           fetchUser = fetchUser.replace(staticavatar, dynamicavatar).replace(staticavatar, dynamicavatar);
+           fetchUser = JSON.stringify(fetchUser).replace(staticavatar, dynamicavatar).replace(staticavatar, dynamicavatar);
            fetchUser = JSON.parse(fetchUser);
         } catch (err) {
             console.log(err);
