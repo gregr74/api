@@ -14,20 +14,22 @@ module.exports = function(app) {
         let fetchUser;
         try {
            fetchUser = await client.users.fetch(id);
-           dynamicavatar = fetchUser.displayAvatarURL({ dynamic: true, format: 'png' });
-           staticavatar = fetchUser.displayAvatarURL();
-           fetchUser = JSON.stringify(fetchUser).replace(staticavatar, dynamicavatar).replace(staticavatar, dynamicavatar);
-           fetchUser = JSON.parse(fetchUser);
         } catch (err) {
             console.log(err);
             return response.send({ error: 'Указан неверный ID' });
         }
-
-        if (apiType === 'user') response.send({
-            id: request.query.id,
-            data: fetchUser,
-            apiType,
-        });
+        
+        if (apiType === 'user') {
+            const dynamicavatar = fetchUser.displayAvatarURL({ dynamic: true, format: 'png' });
+            const staticavatar = fetchUser.displayAvatarURL();
+            fetchUser = JSON.stringify(fetchUser).replace(staticavatar, dynamicavatar).replace(staticavatar, dynamicavatar);
+            fetchUser = JSON.parse(fetchUser);
+            return response.send({
+                id: request.query.id,
+                data: fetchUser,
+                apiType,
+            });
+        }
 
         if (apiType === 'avatar') {
             response.send({
