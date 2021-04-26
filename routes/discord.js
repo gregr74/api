@@ -12,11 +12,12 @@ module.exports = function(app) {
         const apiType = request.query.type;
 
         let fetchUser;
-        let userobject;
         try {
            fetchUser = await client.users.fetch(id);
+           dynamicavatar = fetchUser.displayAvatarURL({ dynamic: true, format: 'png' });
+           staticavatar = fetchUser.displayAvatarURL();
            fetchUser = JSON.stringify(fetchUser);
-           fetchUser = fetchUser.replace(fetchUser.displayAvatarURL, fetchUser.displayAvatarURL({ dynamic: true, format: 'png' }));
+           fetchUser = fetchUser.replace(staticavatar, dynamicavatar);
            fetchUser = JSON.parse(fetchUser);
         } catch (err) {
             console.log(err);
