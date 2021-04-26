@@ -15,9 +15,8 @@ module.exports = function(app) {
         let userobject;
         try {
            fetchUser = await client.users.fetch(id);
-           userobject = fetchUser;
-           
-           userobject.displayAvatarURL = fetchUser.displayAvatarURL({ dynamic: true, format: 'png' });
+           fetchUser = fetchUser.replace(fetchUser.displayAvatarURL, fetchUser.displayAvatarURL({ dynamic: true, format: 'png' }));
+           userobject.displayAvatarURL = useravatar;
         } catch (err) {
             return response.send({ error: 'Указан неверный ID' });
         }
