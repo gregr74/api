@@ -15,15 +15,17 @@ module.exports = function(app) {
         let userobject;
         try {
            fetchUser = await client.users.fetch(id);
+           fetchUser = JSON.stringify(fetchUser);
            fetchUser = fetchUser.replace(fetchUser.displayAvatarURL, fetchUser.displayAvatarURL({ dynamic: true, format: 'png' }));
-           userobject.displayAvatarURL = useravatar;
+           fetchUser = JSON.parse(fetchUser);
         } catch (err) {
+            console.log(err);
             return response.send({ error: 'Указан неверный ID' });
         }
 
         if (apiType === 'user') response.send({
             id: request.query.id,
-            data: userobject,
+            data: fetchUser,
             apiType,
         });
 
