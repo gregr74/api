@@ -14,7 +14,6 @@ module.exports = function(app) {
         let fetchUser;
         try {
            fetchUser = await client.users.fetch(id);
-           fetchUser.displayAvatarURL = fetchUser.displayAvatarURL({ dynamic: true, format: 'png' });
         } catch (err) {
             return response.send({ error: 'Указан неверный ID' });
         }
