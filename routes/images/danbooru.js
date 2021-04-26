@@ -8,6 +8,7 @@ module.exports = function(app) {
         const danbooruURL = `https://danbooru.donmai.us/posts.json?random&tags=${req.query.q}&limit=1`
 
         const request = await fetch(danbooruURL);
+        console.log(request);
         if (request.length <= 0) return res.status(404).send({ error: 'Картинки не найдено' });
         res.send({
             query: req.query.q,
