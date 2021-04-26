@@ -11,7 +11,7 @@ module.exports = function(app) {
         if (request.length <= 0) return res.status(404).send({ error: 'Картинки не найдено' });
         res.send({
             query: req.query.q,
-            data: request[0].file_url
+            data: request.file_url
         });
     });
 
