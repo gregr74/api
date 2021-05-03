@@ -11,7 +11,8 @@ module.exports = function(app) {
         const ip = request.query.ip;
         const port = request.query.port;
         var options = {
-            host: ip + ':' + port
+            host: ip,
+            port: port
         }
         query(options, function (error, response) {
             if(error) { console.log(error) } else { 
