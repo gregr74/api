@@ -8,6 +8,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
     extended: true,
 }));
+app.set('Access-Control-Allow-Origin', '*');
 
 require('./routes')(app);
 

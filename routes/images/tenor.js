@@ -11,6 +11,7 @@ module.exports = function(app) {
         const request = await fetch(tenorURL).then(res => res.json());
 
         if (request.status === '404') return res.status(404).send({ error: 'Картинки не найдено' });
+
         res.send({
             query: req.query.q,
             data: request.results[0].media[0].gif.url
