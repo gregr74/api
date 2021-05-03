@@ -14,7 +14,7 @@ module.exports = function(app) {
             host: ip,
             port: port
         }
-        query(options, function (error, response) {
+        query(options, function (error, data) {
             if(error) { 
             response.send({
                 ip: request.query.ip,
