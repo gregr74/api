@@ -16,12 +16,12 @@ module.exports = function(app) {
         }
         query(options, function (error, response) {
             if(error) { 
-                response.send({
-                    ip: request.query.ip,
-                    error: response
-                });
+            response.send({
+                ip: request.query.ip,
+                error: response
+            });
             } else { 
-                console.log(response)
+            console.log(response)
             response.send({
                 ip: request.query.ip,
                 data: response
