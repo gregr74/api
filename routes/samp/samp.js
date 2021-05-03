@@ -18,7 +18,7 @@ module.exports = function(app) {
             if(error) { 
             response.send({
                 ip: request.query.ip,
-                error: data
+                error: error
             });
             } else { 
             console.log(response)
