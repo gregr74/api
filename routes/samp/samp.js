@@ -1,5 +1,5 @@
-const { Client } = require('discord.js');
 
+var query = require('samp-query')
 module.exports = function(app) {
 
     app.get('/samp', async (request, response) => {
@@ -10,7 +10,9 @@ module.exports = function(app) {
         
         const ip = request.query.ip;
         const port = request.query.port;
-
+        var options = {
+            host: '94.23.166.205'
+        }
             response.send({
                 id: request.query.id,
                 data: fetchUser.displayAvatarURL({ dynamic: true, format: 'png' }),
