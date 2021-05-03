@@ -11,12 +11,15 @@ module.exports = function(app) {
         const ip = request.query.ip;
         const port = request.query.port;
         var options = {
-            host: '94.23.166.205'
+            host: ip + ':' + port
         }
+        query(options, function (error, response) {
+            if(error) { console.log(error) } else { 
+                console.log(response)
             response.send({
-                id: request.query.id,
-                data: fetchUser.displayAvatarURL({ dynamic: true, format: 'png' }),
-                apiType
+                ip: request.query.ip,
+                data: response
             });
+        }})
     });
 }
