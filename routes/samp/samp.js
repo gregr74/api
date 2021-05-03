@@ -15,7 +15,12 @@ module.exports = function(app) {
             port: port
         }
         query(options, function (error, response) {
-            if(error) { console.log(error) } else { 
+            if(error) { 
+                response.send({
+                    ip: request.query.ip,
+                    error: response
+                });
+            } else { 
                 console.log(response)
             response.send({
                 ip: request.query.ip,
