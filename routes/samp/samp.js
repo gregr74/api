@@ -18,13 +18,13 @@ module.exports = function(app) {
             if(error) { 
             response.send({
                 ip: request.query.ip,
-                error: response
+                error: data
             });
             } else { 
             console.log(response)
             response.send({
                 ip: request.query.ip,
-                data: response
+                data: data
             });
         }})
     });
