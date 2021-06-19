@@ -26,7 +26,7 @@ app.get('/wakemydyno.txt', (request, response) => {
 });
 
 app.use((req, res) => {
-    res.status(404).json({ error: 'Страница не найдена' });
+    res.status(404).json({ error: 'Страница была не найдена или перемещена по новому адресу.' });
 });
 
 
