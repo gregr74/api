@@ -17,7 +17,7 @@ app.get('/', (request, response) => {
     response.send({
         message: "Welcome to the VOID api",
         docs: "https://docs.void.cf/",
-        version: "1.4.0b"
+        version: "1.4.6b"
     });
 });
 
