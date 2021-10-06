@@ -16,7 +16,7 @@ module.exports = function(app) {
             id: request.query.username,
             data: await fetch(`https://www.instagram.com/${username}/?__a=1`, {
                 method  : 'GET',
-                credentials: "same-origin",
+                credentials: 'include',
                 headers : headers
             }).then(res=>res.text())
         });
