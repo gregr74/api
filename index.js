@@ -11,12 +11,7 @@ app.use(bodyParser.urlencoded({
     extended: true,
 }));
 
-require('./routes')(app).catch(e=>{
-    app.response.send({
-        message: "Возникла ошибка на стороне нашего API сервера",
-        error: e
-    })
-});
+require('./routes')(app)
 
 app.get('/', (request, response) => {
     response.send({
