@@ -20,7 +20,7 @@ module.exports = function(app) {
                 method  : 'GET',
                 credentials: 'include',
                 headers : headers
-            }).then(res=>res.text())
+            }).then(res=>res.json())
         });
     });
 }
