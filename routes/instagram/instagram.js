@@ -6,10 +6,12 @@ module.exports = function(app) {
 
         const username = request.query.username;
 
-        response.send({
-            id: request.query.username,
-            data: await fetch(`https://www.instagram.com/${username}/?__a=1`)
-        });
+        await fetch(`https://www.instagram.com/${username}/?__a=1`).then(response=>{
+            response.send({
+                id: request.query.username,
+                data: response
+            });
+        })
 
     });
 }
