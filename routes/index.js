@@ -33,6 +33,7 @@ module.exports = function(app){
     app.get('/stats', (request, response) => {
         response.send({
             "requests": memory['requests'],
+            "startup": memory['startup'],
             "cpu_usage": process.cpuUsage(),
             "memory_usage": `${Math.round(process.memoryUsage().heapUsed / 1024 / 1024 * 100) / 100} MB`
         });
