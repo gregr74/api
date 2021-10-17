@@ -42,7 +42,6 @@ module.exports = function(app){
 
     const files = readDir(__dirname);
     files.filter(file => !file.endsWith('index.js')).forEach(file => {
-        require(file)(app);
+        require(file)(app, newrequest);
     })
-    newrequest()
 }
