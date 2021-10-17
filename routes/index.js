@@ -1,8 +1,6 @@
 const fs = require('fs');
 const path = require('path');
-let memory = {
-    'requests': 0
-};
+
 
 
 function readDir (directory) {
@@ -25,7 +23,7 @@ function readDir (directory) {
     return result;
 }
 
-module.exports = function(app){
+module.exports = function(app, memory){
     app.get('/stats', (request, response) => {
         response.send({
             "requests": memory['requests']

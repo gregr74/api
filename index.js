@@ -2,6 +2,10 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 
+let memory = {
+    'requests': 0
+};
+
 const app = express();
 const port = process.env.PORT || 3001;
 
@@ -11,7 +15,7 @@ app.use(bodyParser.urlencoded({
     extended: true,
 }));
 
-require('./routes')(app)
+require('./routes')(app, memory)
 
 app.get('/', (request, response) => {
     response.send({
