@@ -5,8 +5,11 @@ let memory = {
     'requests': 0,
     'startup': Date.now()
 };
-
+function newrequest() {
+    memory['requests']++
+}
 function readDir (directory) {
+
     const result = [];
 
     (function read (dir) {
@@ -40,5 +43,5 @@ module.exports = function(app){
         require(file)(app);
     })
     console.log(memory);
-    memory['requests'] = memory['requests']+1;
+    newrequest()
 }
