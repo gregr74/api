@@ -1,8 +1,9 @@
 const fetch = require('node-fetch');
 
-module.exports = function(app) {
+module.exports = function(app, memory) {
 
     app.get('/instagram', async (request, response) => {
+        memory['requests']++
         if (!request.query.username) return response.send({ error: 'Вы не указали имя пользователя' });
 
         const username = request.query.username;

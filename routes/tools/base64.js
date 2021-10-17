@@ -2,9 +2,10 @@ const fetch = require('node-fetch');
 const imageToBase64 = require('image-to-base64');
 
 
-module.exports = function(app) {
+module.exports = function(app, memory) {
 
     app.get('/base64', async (request, response) => {
+        memory['requests']++
         if (!request.query.type) return response.send({ error: 'Вы не указали тип (decode/encode)' });
         if (!request.query.inputlink) return response.send({ error: 'Вы не указали ссылку' });
 

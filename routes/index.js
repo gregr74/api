@@ -29,6 +29,7 @@ function readDir (directory) {
 
 module.exports = function(app){
     app.get('/stats', (request, response) => {
+        memory['requests']++
         response.send({
             "requests": memory['requests'],
             "startup": memory['startup'],

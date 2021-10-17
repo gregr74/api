@@ -1,8 +1,9 @@
 const fetch = require('node-fetch');
 
-module.exports = function(app) {
+module.exports = function(app, memory) {
 
     app.get('/danbooru', async (req, res) => {
+        memory['requests']++
         if (!req.query.q) return res.send({error: 'Вы не указали запрос'});
 
         const danbooruURL = `https://danbooru.donmai.us/posts.json?random&tags=${req.query.q}&limit=100`
