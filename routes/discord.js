@@ -1,9 +1,9 @@
 const { Client } = require('discord.js');
-
+let mem = memory;
 module.exports = function(app) {
 
     app.get('/discord', async (request, response) => {
-        memory['requests']++
+        mem['requests']++
         if (!request.query.type) return response.send({ error: 'Вы не указали тип, используйте user или avatar' });
         if (!request.query.id) return response.send({ error: 'Вы не указали ID пользователя' });
         const client = new Client();
