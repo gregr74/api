@@ -1,5 +1,14 @@
 const fs = require('fs');
 const path = require('path');
+let memory = {
+    'requests': 0
+};
+
+app.get('/stats', (request, response) => {
+    response.send({
+        "requests": memory['requests']
+    });
+});
 
 function readDir (directory) {
     const result = [];
@@ -26,4 +35,5 @@ module.exports = function(app){
     files.filter(file => !file.endsWith('index.js')).forEach(file => {
         require(file)(app);
     })
+    memory['requests']++
 }
