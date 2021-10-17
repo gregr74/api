@@ -2,7 +2,8 @@ const fs = require('fs');
 const path = require('path');
 
 let memory = {
-    'requests': 0
+    'requests': 0,
+    'startup': Date.now()
 };
 
 function readDir (directory) {
@@ -38,5 +39,6 @@ module.exports = function(app){
     files.filter(file => !file.endsWith('index.js')).forEach(file => {
         require(file)(app);
     })
+    console.log(memory);
     memory['requests'] = memory['requests']+1;
 }
