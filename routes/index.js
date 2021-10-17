@@ -7,6 +7,7 @@ let memory = {
 };
 function newrequest() {
     memory['requests']++
+    console.log(memory);
 }
 function readDir (directory) {
 
@@ -43,6 +44,5 @@ module.exports = function(app){
     files.filter(file => !file.endsWith('index.js')).forEach(file => {
         require(file)(app);
     })
-    console.log(memory);
     newrequest()
 }
