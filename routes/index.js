@@ -34,7 +34,7 @@ module.exports = function(app){
             "requests": memory['requests'],
             "startup": memory['startup'],
             "cpu_usage": process.cpuUsage(),
-            "memory_usage": `${Math.round(process.memoryUsage().heapUsed / 1024 / 1024 * 100) / 100} MB`
+            "memory_usage": Math.round(process.memoryUsage().heapUsed / 1024 / 1024 * 100) / 100
         });
     });
 
