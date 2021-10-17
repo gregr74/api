@@ -5,10 +5,7 @@ let memory = {
     'requests': 0,
     'startup': Date.now()
 };
-function newrequest() {
-    memory['requests']++
-    console.log(memory);
-}
+
 function readDir (directory) {
 
     const result = [];
@@ -42,6 +39,6 @@ module.exports = function(app){
 
     const files = readDir(__dirname);
     files.filter(file => !file.endsWith('index.js')).forEach(file => {
-        require(file)(app, newrequest);
+        require(file)(app, memory);
     })
 }
