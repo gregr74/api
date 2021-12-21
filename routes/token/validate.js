@@ -28,10 +28,16 @@ module.exports = function(app, memory) {
                 connection.query(
                     'SELECT * FROM `api_keys` WHERE `token` = "' + token + '"',
                     function(err, results, fields) {
-                        response.send({
-                            type: "success",
-                            msg: results
-                        });
+                        if(results.length==0) {
+                            response.send({
+                                message: "wrongtoken"
+                            });
+                        } else {
+                            response.send({
+                                type: "success",
+                                msg: results
+                            });
+                        }
                     }
                 );
             }
