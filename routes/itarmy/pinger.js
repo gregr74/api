@@ -16,16 +16,16 @@ module.exports = function(app, memory) {
                 headers: {
                     'User-Agent': 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/38.0.2125.111 Safari/537.36'
                 },
-                timeout: 500
+                timeout: 1000
             }, function (error, resp, body) {
-                if (!error && resp.statusCode == 200) {
+                if (!error) {
                     i++;
                     array.online.push(website);
-                    console.log(`${website} online`);
+                    console.log(`${website} online [${resp.statusCode}]`);
                 } else {
                     i++;
                     array.offline.push(website);
-                    console.log(`${website} offline`);
+                    console.log(`${website} offline [${error.code}]`);
                 }
                 if(i==json.length) {
                     response.send(array);
