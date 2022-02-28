@@ -1,11 +1,5 @@
 const fetch = require('node-fetch');
-function isJSON(str) {
-    try {
-        return (JSON.parse(str) && !!str);
-    } catch (e) {
-        return false;
-    }
-}
+function isJSON(str) { try { return (JSON.parse(str) && !!str); } catch (e) { return false; }}
 
 module.exports = function(app, memory) {
     app.get('/pinger', async (request, response) => {
