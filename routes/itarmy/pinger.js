@@ -14,7 +14,7 @@ module.exports = function(app, memory) {
         if (!request.query.data) return response.send({ error: 'Вы не указали входные данные' });
 
         const data = request.query.data;
-        if(!isJSON(data)) {return response.send({"error": "unknown error, contact tg: @zuewjj"})}
+        if(!isJSON(data)) {return response.send({"error": "Данные которые вы предоставили не являются JSON"})}
         let json = JSON.parse(data);
         json.forEach(website=>{
             const request = require('request');
