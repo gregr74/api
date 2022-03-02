@@ -1,2 +1,3 @@
 This repository is automatically linked to the void api server. 
-Available at api.void.cf 
+Available at https://api.void.cf 
+DOCS: https://docs.void.cf
